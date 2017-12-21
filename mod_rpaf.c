@@ -290,6 +290,7 @@ static int rpaf_post_read_request(request_rec *r) {
         return DECLINED;
 
     apr_array_header_t *arr = apr_array_make(r->pool, 4, sizeof(char *));
+    fwdvalue =  apr_pstrdup(r->pool, fwdvalue);
 
     while ((val = strsep(&fwdvalue, ",")) != NULL) {
         /* strip leading and trailing whitespace */
